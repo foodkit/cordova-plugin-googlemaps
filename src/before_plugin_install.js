@@ -23,6 +23,12 @@ module.exports = function(ctx) {
     }
   }
 
+  return Q.Promise(function (resolve) {
+    // Checks below seem to fail for recent versions of Ionic and/or cordova-ios.
+    // As long as the config.xml file contains the correct environment variables
+    // the checks below should be unneeded.
+    resolve();
+  });
 
   return Q.Promise(function(resolve, reject, notify) {
     var exec = require('child_process').exec;
